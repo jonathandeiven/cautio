@@ -1,0 +1,37 @@
+#cautio-home, #design, #features, #connectivity, #software{
+    background: url(../cautio-images/bg.jpg) no-repeat center center fixed;
+    background-color: #ecedee;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: table;
+    width: 100%;
+}
+
+.mainlogo{
+    width: 27%;
+}
+
+.nav-logo{
+    height:18px;
+    padding-top: 1px;
+}
+
+.blackfont{
+    color: #222222;
+}
+
+.whitegrad {
+    background: #f1f1f1;
+}
+
+.nav li:hover{
+    background:none;
+    color: #b2b3b4;
+}
+
+.navbar {
+    border-bottom: 1px solid #c4c4c4;
+    box-shadow: 0px 0px 0px;
+}
