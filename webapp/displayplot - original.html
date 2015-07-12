@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function () {
+
+    $.ajax({
+        type: "GET",
+        url: "Data.csv",
+        dataType: "text",
+        success: function (data) { processData(data); }
+    });
+
+    function processData(allText) {
+        var allLinesArray = allText.split('\n');
+        if (allLinesArray.length > 0) {
+            var dataPoints = [];
+            for (var i = 0; i <= allLinesArray.length - 1; i++) {
+                var rowData = allLinesArray[i].split(',');
+                dataPoints.push({ label: rowData[0], y: parseInt(rowData[1]) });
+            }
+            chart.options.data[0].dataPoints = dataPoints;
+            chart.render();
+        }
+    }
+
+            
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "theme2",
+        title: {
+            text: "Basic Column Chart – CanvasJS"
+        },
+        data: [
+        {
+            type: "column",
+            dataPoints: []
+        }
+        ]
+    });
+            
+});
+</script>
+<script type="text/javascript" src="canvasjs.min.js"></script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+</html>
