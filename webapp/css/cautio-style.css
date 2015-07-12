@@ -10,7 +10,34 @@
 }
 
 .mainlogo{
-    width: 27%;
+    width: 30%;
+}
+
+.video{
+	padding-top: 25px;
+}
+
+.metrics{
+	padding-right: 20px;
+}
+
+td {
+    vertical-align: top;
+}
+
+h3.metricstitle{
+	font-family: "Open Sans", "Helvetica-Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 0px;
+    height: 0px;
+}
+
+h3.metricstitle2ndrow{
+	padding-top: 20px;
+	font-family: "Open Sans", "Helvetica-Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 0px;
+    height: 0px;
 }
 
 .nav-logo{
