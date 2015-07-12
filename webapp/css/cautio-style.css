@@ -1,6 +1,6 @@
 #cautio-home, #design, #features, #connectivity, #software{
     background: url(../cautio-images/bg.jpg) no-repeat center center fixed;
-    background-color: #ecedee;
+    background-color: #171717;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -28,6 +28,7 @@ td {
 h3.metricstitle{
 	font-family: "Open Sans", "Helvetica-Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
+	color: #ecedee;
 	line-height: 0px;
     height: 0px;
 }
@@ -36,6 +37,7 @@ h3.metricstitle2ndrow{
 	padding-top: 20px;
 	font-family: "Open Sans", "Helvetica-Neue", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 16px;
+	color: #ecedee;
 	line-height: 0px;
     height: 0px;
 }
