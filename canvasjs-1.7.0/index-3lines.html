@@ -8,8 +8,10 @@
 		// dataPoints
 		var dataPoints1 = [];
 		var dataPoints2 = [];
+		var dataPoints3 = [];
 		var line1 = "x";
 		var line2 = "y";
+		var line3 = "z";
 
 		var chart = new CanvasJS.Chart("chartContainer",{
 			zoomEnabled: true,
@@ -47,6 +49,14 @@
 				showInLegend: true,
 				name: line2 ,
 				dataPoints: dataPoints2
+			},
+			{				
+				// dataSeries3
+				type: "line",
+				xValueType: "dateTime",
+				showInLegend: true,
+				name: line3 ,
+				dataPoints: dataPoints3
 			}],
           legend:{
             cursor:"pointer",
@@ -68,6 +78,7 @@
 		// initial value
 		var yValue1 = 0; 
 		var yValue2 = 0;
+		var yValue3 = 0;
 
 		var time = new Date;
 		time.setHours(9);
@@ -90,10 +101,12 @@
 				// generating random values
 				var deltaY1 = .5 + Math.random() *(-.5-.5);
 				var deltaY2 = .5 + Math.random() *(-.5-.5);
+				var deltaY3 = .5 + Math.random() *(-.5-.5);
 
 				// adding random value and rounding it to two digits. 
 				yValue1 = Math.round((yValue1 + deltaY1)*100)/100;
 				yValue2 = Math.round((yValue2 + deltaY2)*100)/100;
+				yValue3 = Math.round((yValue3 + deltaY3)*100)/100;
 				
 				// pushing the new values
 				dataPoints1.push({
@@ -104,6 +117,10 @@
 					x: time.getTime(),
 					y: yValue2
 				});
+				dataPoints3.push({
+					x: time.getTime(),
+					y: yValue3
+				});
 
 
 			};
@@ -111,6 +128,7 @@
 			// updating legend text with  updated with y Value 
 			chart.options.data[0].legendText = line1 + "  $" + yValue1;
 			chart.options.data[1].legendText = line2 + "  $" + yValue2; 
+			chart.options.data[2].legendText = line3 + "  $" + yValue3; 
 
 			chart.render();
 
@@ -126,6 +144,6 @@
 </head>
  
 <body>
-  <div id="chartContainer" style="height: 500px; width: 100%;"></div>
+  <div id="chartContainer" style="height: 268px; width: 297px;"></div>
 </body>
 </html>
