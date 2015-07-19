@@ -37,7 +37,7 @@
 			data: [{ 
 				// dataSeries1
 				type: "line",
-				xValueType: "dateTime",
+				xValueType: "number",
 				showInLegend: true,
 				name: line1 ,
 				dataPoints: dataPoints1
@@ -45,7 +45,7 @@
 			{				
 				// dataSeries2
 				type: "line",
-				xValueType: "dateTime",
+				xValueType: "number",
 				showInLegend: true,
 				name: line2 ,
 				dataPoints: dataPoints2
@@ -53,7 +53,7 @@
 			{				
 				// dataSeries3
 				type: "line",
-				xValueType: "dateTime",
+				xValueType: "number",
 				showInLegend: true,
 				name: line3 ,
 				dataPoints: dataPoints3
@@ -78,7 +78,7 @@
 		var yValue2 = 0;
 		var yValue3 = 0;
 
-		var time = new Date;
+		var time = 0;
 		/*time.setHours(9);
 		time.setMinutes(30);
 		time.setSeconds(00);
@@ -93,7 +93,7 @@
 			for (var i = 0; i < count; i++) {
 				
 				// add interval duration to time				
-				time.setTime(time.getTime()+ updateInterval);
+				time++;
 
 
 				// generating random values
@@ -108,21 +108,33 @@
 				
 				// pushing the new values
 				dataPoints1.push({
-					x: time.getTime(),
+					x: time,
 					y: yValue1
 				});
 				dataPoints2.push({
-					x: time.getTime(),
+					x: time,
 					y: yValue2
 				});
 				dataPoints3.push({
-					x: time.getTime(),
+					x: time,
 					y: yValue3
 				});
 
 
 			};
 
+			
+			//Delete old data to prevent build up
+			if (dataPoints1.length > 30) {
+				dataPoints1.shift();
+			}
+			if (dataPoints2.length > 30) {
+				dataPoints2.shift();
+			}
+			if (dataPoints3.length > 30) {
+				dataPoints3.shift();
+			}
+			
 			// updating legend text with  updated with y Value 
 			chart.options.data[0].legendText = line1 + "  $" + yValue1;
 			chart.options.data[1].legendText = line2 + "  $" + yValue2; 
