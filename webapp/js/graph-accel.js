@@ -1,5 +1,13 @@
 window.onload = function () {
 
+		CanvasJS.addColorSet("Shades",
+                [//colorSet Array
+
+                "#C24642",
+                "#369EAD",
+                "#92D050"                
+                ]);
+
 		// dataPoints
 		var dataPoints1 = [];
 		var dataPoints2 = [];
@@ -9,6 +17,7 @@ window.onload = function () {
 		var line3 = "z";
 
 		var chart = new CanvasJS.Chart("chart-accel",{
+			colorSet: "Shades",
 			backgroundColor: "#f1f1f1",
 			zoomEnabled: true,
 			toolTip: {
@@ -28,7 +37,8 @@ window.onload = function () {
 			},
 			axisY:{
 				//title: "Acceleration",
-				includeZero: false
+				includeZero: false,
+				gridDashType: "dot" 
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -55,6 +65,8 @@ window.onload = function () {
 				dataPoints: dataPoints3
 			}],
           legend:{
+			dockInsidePlotArea: true,
+			horizontalAlign: "right",
             cursor:"pointer",
             itemclick : function(e) {
               if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
