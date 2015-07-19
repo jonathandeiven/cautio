@@ -28,10 +28,10 @@
 				fontColor: "dimGrey"
 			},
 			axisX: {
-				title: "Time"
+				//title: "Time"
 			},
 			axisY:{
-				title: "Acceleration",
+				//title: "Acceleration",
 				includeZero: false
 			}, 
 			data: [{ 
@@ -72,19 +72,17 @@
           }
 		});
 
-
-
-		var updateInterval = 3000;
+		var updateInterval = 5000;
 		// initial value
 		var yValue1 = 0; 
 		var yValue2 = 0;
 		var yValue3 = 0;
 
 		var time = new Date;
-		time.setHours(9);
+		/*time.setHours(9);
 		time.setMinutes(30);
 		time.setSeconds(00);
-		time.setMilliseconds(00);
+		time.setMilliseconds(00);*/
 		// starting at 9.30 am
 
 		var updateChart = function (count) {
@@ -135,7 +133,7 @@
 		};
 
 		// generates first set of dataPoints 
-		updateChart(3000);	
+		updateChart(30);	
 		 
 		// update chart after specified interval 
 		setInterval(function(){updateChart()}, updateInterval);
