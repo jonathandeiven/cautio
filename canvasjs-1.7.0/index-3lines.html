@@ -14,6 +14,7 @@
 		var line3 = "z";
 
 		var chart = new CanvasJS.Chart("chartContainer",{
+			backgroundColor: "#f1f1f1",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -72,7 +73,7 @@
           }
 		});
 
-		var updateInterval = 5000;
+		var updateInterval = 1000;
 		// initial value
 		var yValue1 = 0; 
 		var yValue2 = 0;
@@ -135,10 +136,10 @@
 				dataPoints3.shift();
 			}
 			
-			// updating legend text with  updated with y Value 
+			/*// updating legend text with  updated with y Value 
 			chart.options.data[0].legendText = line1 + "  $" + yValue1;
 			chart.options.data[1].legendText = line2 + "  $" + yValue2; 
-			chart.options.data[2].legendText = line3 + "  $" + yValue3; 
+			chart.options.data[2].legendText = line3 + "  $" + yValue3; */
 
 			chart.render();
 
