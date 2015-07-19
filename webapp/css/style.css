@@ -74,7 +74,7 @@ li {
 
 .offlineimage {
     position: absolute; 
-    top: 0px;
+    top: 25px;
     z-index: 2;
 }
 
