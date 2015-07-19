@@ -59,14 +59,31 @@ li {
     left: 2.5%;
 }
 
+.videobox {
+    position: relative; 
+    width: 720px;
+    height: 405px;
+}
+
+.video {
+    padding-top: 25px;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+}
+
+.offlineimage {
+    position: absolute; 
+    top: 0px;
+    z-index: 2;
+}
+
 .mainlogo{
     padding-top: 10px;
     width: 30%;
 }
 
-.video{
-	padding-top: 25px;
-}
+
 
 .metrics{
 	padding-right: 20px;
