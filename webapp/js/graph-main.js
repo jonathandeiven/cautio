@@ -35,7 +35,9 @@ document.ready = function () {
 			axisY:{
 				//title: "Acceleration",
 				includeZero: false,
-				gridDashType: "dot" 
+				gridDashType: "dot",
+				minimum: 0,
+				maximum: 20 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -137,7 +139,9 @@ document.ready = function () {
 			axisY:{
 				//title: "Acceleration",
 				includeZero: false,
-				gridDashType: "dot" 
+				gridDashType: "dot",
+				minimum: 0,
+				maximum: 20 //FIX WITH ACTUAL MAX VALUE				
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -272,7 +276,9 @@ document.ready = function () {
 			axisY:{
 				//title: "Acceleration",
 				includeZero: false,
-				gridDashType: "dot" 
+				gridDashType: "dot",
+				minimum: 0,
+				maximum: 20 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -374,7 +380,9 @@ document.ready = function () {
 			axisY:{
 				//title: "Acceleration",
 				includeZero: false,
-				gridDashType: "dot" 
+				gridDashType: "dot",
+				minimum: 0,
+				maximum: 20 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
