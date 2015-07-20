@@ -117,6 +117,19 @@
 		y: '0.00',
 		z: '0.00'
 	}
+	var buttonPush = false
+	var sessionID = makeid()
+
+	function makeid()
+	{
+    	var sessionID = "";
+    	var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    	for( var i=0; i < 10; i++ )
+        	sessionID += allowedChars.charAt(Math.floor(Math.random() * allowedChars.length));
+
+    	return sessionID;
+	}
 
 	function initialiseSensorTag()
 	{
@@ -229,6 +242,8 @@
 		data['GyroX'] = gyroscopeReading.x
 		data['GyroY'] = gyroscopeReading.y
 		data['GyroZ'] = gyroscopeReading.z
+		data['Btn'] = buttonPush
+		data['SessionID'] = sessionID
 
       	reading.save(data, {
       		success: function(object) {
@@ -263,22 +278,7 @@
 
 	function keypressHandler(data)
 	{
-		// Update background color.
-		switch (data[0])
-		{
-			case 0:
-				setBackgroundColor('white')
-				break;
-			case 1:
-				setBackgroundColor('red')
-				break;
-			case 2:
-				setBackgroundColor('blue')
-				break;
-			case 3:
-				setBackgroundColor('magenta')
-				break;
-		}
+		buttonPush = true;
 
 		// Update the value displayed.
 		var string = 'raw: 0x' + bufferToHexStr(data, 0, 1)
