@@ -2,12 +2,10 @@ document.ready = function () {
 
 	CanvasJS.addColorSet("Shades",
         [//colorSet Array
-
         "#C24642",
         "#369EAD",
         "#92D050"                
         ]);
-
 	// How often the graphs update
 	var updateInterval = 1000;
 
@@ -17,12 +15,11 @@ document.ready = function () {
 		var LUMline1 = "x";
 
 		var LUMchart = new CanvasJS.Chart("chart-lum",{
-			colorSet: "Shades",
+			colorSet: "#369EAD",
 			backgroundColor: "#f1f1f1",
 			zoomEnabled: true,
 			toolTip: {
-				shared: true
-				
+			shared: true	
 			},
 			legend: {
 				verticalAlign: "top",
@@ -41,7 +38,7 @@ document.ready = function () {
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: 0,
-				maximum: 20 //FIX WITH ACTUAL MAX VALUE
+				maximum: 200 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -145,8 +142,8 @@ document.ready = function () {
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: 0,
-				maximum: 20 //FIX WITH ACTUAL MAX VALUE				
+				minimum: -5,
+				maximum: 5 //FIX WITH ACTUAL MAX VALUE				
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -283,8 +280,8 @@ document.ready = function () {
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: 0,
-				maximum: 20 //FIX WITH ACTUAL MAX VALUE
+				minimum: -20,
+				maximum: 40 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -388,8 +385,8 @@ document.ready = function () {
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: 0,
-				maximum: 20 //FIX WITH ACTUAL MAX VALUE
+				minimum: -200,
+				maximum: 200 //FIX WITH ACTUAL MAX VALUE
 			}, 
 			data: [{ 
 				// dataSeries1
