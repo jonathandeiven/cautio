@@ -2,9 +2,15 @@ document.ready = function () {
 
 	CanvasJS.addColorSet("Shades",
         [//colorSet Array
-        "#C24642",
-        "#369EAD",
-        "#92D050"                
+        "#f34f4f",
+        "#fc9733",
+        "#3cf439"                
+        ]);
+	CanvasJS.addColorSet("LightShades",
+        [//colorSet Array
+        "#ffee80",
+        "#fc9733",
+        "#3cf439"                
         ]);
 	// How often the graphs update
 	var updateInterval = 1000;
@@ -15,8 +21,8 @@ document.ready = function () {
 		var LUMline1 = "x";
 
 		var LUMchart = new CanvasJS.Chart("chart-lum",{
-			colorSet: "#369EAD",
-			backgroundColor: "#f1f1f1",
+			colorSet: "LightShades",
+			backgroundColor: "#105ea7",
 			zoomEnabled: true,
 			toolTip: {
 			shared: true	
@@ -27,14 +33,18 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "dimGrey"
+				fontColor: "#FFF"
 			},
 			axisX: {
+				labelFontColor: "#FFF",
 				//title: "Time"
 				//interval: 1
+				gridColor: "#FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
+				labelFontColor: "FFF",
+				gridColor: "FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: 0,
@@ -120,7 +130,7 @@ document.ready = function () {
 
 		var ACCELchart = new CanvasJS.Chart("chart-accel",{
 			colorSet: "Shades",
-			backgroundColor: "#f1f1f1",
+			backgroundColor: "#105ea7",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -132,18 +142,22 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "dimGrey"
+				fontColor: "#FFF"
 			},
 			axisX: {
 				//title: "Time"
 				//interval: 1
+				labelFontColor: "FFF",
+				gridColor: "FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: -5,
-				maximum: 5 //FIX WITH ACTUAL MAX VALUE				
+				maximum: 5, //FIX WITH ACTUAL MAX VALUE	
+				labelFontColor: "FFF",	
+				gridColor: "FFF"		
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -258,7 +272,7 @@ document.ready = function () {
 
 		var TEMPchart = new CanvasJS.Chart("chart-temp",{
 			colorSet: "Shades",
-			backgroundColor: "#f1f1f1",
+			backgroundColor: "#105ea7",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -270,14 +284,18 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "dimGrey"
+				fontColor: "FFF"
 			},
 			axisX: {
 				//title: "Time"
 				//interval: 1
+				labelFontColor: "FFF",
+				gridColor: "FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
+				labelFontColor: "FFF",
+				gridColor: "FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: -20,
@@ -363,7 +381,7 @@ document.ready = function () {
 
 		var GYROchart = new CanvasJS.Chart("chart-gyro",{
 			colorSet: "Shades",
-			backgroundColor: "#f1f1f1",
+			backgroundColor: "#105ea7",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -375,18 +393,22 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "dimGrey"
+				fontColor: "FFF"
 			},
 			axisX: {
 				//title: "Time"
 				//interval: 1
+				labelFontColor: "FFF",
+				gridColor: "FFF",
 			},
 			axisY:{
 				//title: "Acceleration",
+				labelFontColor: "FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: -200,
-				maximum: 200 //FIX WITH ACTUAL MAX VALUE
+				maximum: 200, //FIX WITH ACTUAL MAX VALUE
+				gridColor: "FFF",
 			}, 
 			data: [{ 
 				// dataSeries1
