@@ -22,7 +22,7 @@ document.ready = function () {
 
 		var LUMchart = new CanvasJS.Chart("chart-lum",{
 			colorSet: "LightShades",
-			backgroundColor: "#105ea7",
+			backgroundColor: "#0a60b1",
 			zoomEnabled: true,
 			toolTip: {
 			shared: true	
@@ -130,7 +130,7 @@ document.ready = function () {
 
 		var ACCELchart = new CanvasJS.Chart("chart-accel",{
 			colorSet: "Shades",
-			backgroundColor: "#105ea7",
+			backgroundColor: "#0a60b1",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -184,6 +184,7 @@ document.ready = function () {
 				dataPoints: ACCELdataPoints3
 			}],
           legend:{
+          	fontColor: "#f1f1f1",
 			dockInsidePlotArea: true,
 			horizontalAlign: "right",
             cursor:"pointer",
@@ -272,7 +273,7 @@ document.ready = function () {
 
 		var TEMPchart = new CanvasJS.Chart("chart-temp",{
 			colorSet: "Shades",
-			backgroundColor: "#105ea7",
+			backgroundColor: "#0a60b1",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -381,7 +382,7 @@ document.ready = function () {
 
 		var GYROchart = new CanvasJS.Chart("chart-gyro",{
 			colorSet: "Shades",
-			backgroundColor: "#105ea7",
+			backgroundColor: "#0a60b1",
 			zoomEnabled: true,
 			toolTip: {
 				shared: true
@@ -435,6 +436,7 @@ document.ready = function () {
 				dataPoints: GYROdataPoints3
 			}],
           legend:{
+          	fontColor: "#f1f1f1",
 			dockInsidePlotArea: true,
 			horizontalAlign: "right",
             cursor:"pointer",
