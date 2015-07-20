@@ -43,8 +43,8 @@ document.ready = function () {
 			},
 			axisY:{
 				//title: "Acceleration",
-				labelFontColor: "FFF",
-				gridColor: "FFF",
+				labelFontColor: "#FFF",
+				gridColor: "#FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: 0,
@@ -145,10 +145,10 @@ document.ready = function () {
 				fontColor: "#FFF"
 			},
 			axisX: {
+				labelFontColor: "#FFF",
 				//title: "Time"
 				//interval: 1
-				labelFontColor: "FFF",
-				gridColor: "FFF"
+				gridColor: "#FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
@@ -156,8 +156,8 @@ document.ready = function () {
 				gridDashType: "dot",
 				minimum: -5,
 				maximum: 5, //FIX WITH ACTUAL MAX VALUE	
-				labelFontColor: "FFF",	
-				gridColor: "FFF"		
+				labelFontColor: "#FFF",	
+				gridColor: "#FFF"		
 			}, 
 			data: [{ 
 				// dataSeries1
@@ -285,18 +285,18 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "FFF"
+				fontColor: "#FFF"
 			},
 			axisX: {
+				labelFontColor: "#FFF",
 				//title: "Time"
 				//interval: 1
-				labelFontColor: "FFF",
-				gridColor: "FFF"
+				gridColor: "#FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
-				labelFontColor: "FFF",
-				gridColor: "FFF",
+				labelFontColor: "#FFF",
+				gridColor: "#FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: -20,
@@ -394,22 +394,22 @@ document.ready = function () {
                                 fontSize: 14,
 				fontWeight: "bold",
 				fontFamily: "calibri",
-				fontColor: "FFF"
+				fontColor: "#FFF"
 			},
 			axisX: {
+				labelFontColor: "#FFF",
 				//title: "Time"
 				//interval: 1
-				labelFontColor: "FFF",
-				gridColor: "FFF",
+				gridColor: "#FFF"
 			},
 			axisY:{
 				//title: "Acceleration",
-				labelFontColor: "FFF",
+				labelFontColor: "#FFF",
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: -200,
 				maximum: 200, //FIX WITH ACTUAL MAX VALUE
-				gridColor: "FFF",
+				gridColor: "#FFF",
 			}, 
 			data: [{ 
 				// dataSeries1
