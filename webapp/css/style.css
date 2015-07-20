@@ -66,7 +66,6 @@ li {
 }
 
 #video {
-    padding-top: 25px;
     position: absolute;
     top: 0px;
     z-index: 1;
@@ -74,7 +73,6 @@ li {
 
 #offlineimage {
     position: absolute; 
-    top: 25px;
     z-index: 2;
 }
 
