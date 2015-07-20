@@ -7,10 +7,11 @@ html, body {
 	margin: 0;
 	padding: 0;
 
-	font-family: 'Proxima Nova Regular', sans-serif;
+	font-family: "Open Sans", 'Proxima Nova Regular', sans-serif;
 	font-weight: normal;
+	font-color: #fff;
 
-	background: rgb(255,255,255);
+	background: #171717;
 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -25,7 +26,9 @@ body {
 	font-size: 150%;
 	font-size: 7.5vw;
 }
-
+h1, h2, p{
+	color: #fff;
+}
 /* Add a top margin to the content corresponding to the height of the header. */
 body::before,
 section::before {
@@ -87,9 +90,10 @@ header {
 	text-align: center;
 	vertical-align: middle;
 
-	background: #f3f3f3;
+	background: #000;
 
 	z-index: 1000;
+	border-bottom: 0.75px solid #4d8cc5;
 }
 header button {
 	display: block;
@@ -155,6 +159,7 @@ header button#menu-button {
 	position: absolute;
 	right: 0;
 
+	width: 3em;
 	height: 100%;
 	max-height: 100%;
 	margin: 0;
@@ -203,14 +208,18 @@ header menu {
 	transition: visibility 0.5s;
 }
 
-header menu menuitem {
+header menu > * {
 	display: block;
 
 	padding: 0 1em 0 1em;
 
-	font-family: 'Proxima Nova Bold';
+	font-family: "Open Sans", 'Proxima Nova Bold';
 	font-size: 35%;
 	text-align: right;
+}
+header menu a {
+	color: #000;
+	text-decoration: none;
 }
 
 header h1 {
@@ -350,7 +359,8 @@ input.btn-group + label,
 	display: inline-block;
 	box-sizing: border-box; /* Width & height includes padding & border. */
 
-	font-family: 'Proxima Nova Black';
+	font-family: "Open Sans", 'Proxima Nova Black';
+	font-weight: 600;
 	font-size: inherit;
 	line-height: 100%;
 	text-align: center;
@@ -366,7 +376,7 @@ input.btn-group + label,
 
 	box-shadow: none;
 
-	background-color: #b9b9b9; /* Default color: "Charcoal" */
+	background-color: #c20000; /* Default color: "Charcoal" */
 }
 body > button,
 body > input.btn-group + label,
@@ -383,6 +393,36 @@ input.btn-group:checked + label {
 button:focus,
 input.btn-group:focus {
 	outline: none;
+}
+
+button.half,
+input.btn-group.half + label,
+input.btn-group + label.half {
+	float: left;
+	width: 50%; /* Fallback in case calc() is unsupported. */
+	width: calc(50% - 4px);
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+button.third,
+input.btn-group.third + label,
+input.btn-group + label.third {
+	float: left;
+	width: 33%; /* Fallback in case calc() is unsupported. */
+	width: calc(33% - 4px);
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+button.quarter,
+input.btn-group.quarter + label,
+input.btn-group + label.quarter {
+	float: left;
+	width: 25%; /* Fallback in case calc() is unsupported. */
+	width: calc(25% - 4px);
+	margin-left: 2px;
+	margin-right: 2px;
 }
 
 button.wide,
@@ -428,7 +468,7 @@ h1 {
 	padding: 0;
 	margin: 1em 0 0 0;
 
-	font-family: 'Proxima Nova Black';
+	font-family: "Open Sans", 'Proxima Nova Black';
 	font-size: 100%;
 	line-height: 1.5;
 
@@ -442,7 +482,8 @@ h2,h3,h4,h5,h6 {
 	margin: 1em 0 0 0;
 	padding: 0;
 
-	font-family: 'Proxima Nova Bold';
+	font-family: "Open Sans", 'Proxima Nova Bold';
+	font-weight: 700;
 	font-size: 63%;
 
 	line-height: 1.5;
@@ -457,7 +498,7 @@ a {
 p {
 	margin: 0.4em 0 0.4em 0;
 	padding: 0;
-
+	font-weight: 300;
 	font-size: 63%;
 	line-height: 1.5;
 }
@@ -469,11 +510,11 @@ table {
 	text-align: left;
 }
 thead {
-	font-family: 'Proxima Nova Bold';
+	font-family: "Open Sans",'Proxima Nova Bold';
 }
 
 strong {
-	font-family: 'Proxima Nova Bold';
+	font-family: "Open Sans",'Proxima Nova Bold';
 }
 
 code {
@@ -499,7 +540,7 @@ ol li, ul li {
 ol li:before {
 	content: counter(item) ". ";
 	counter-increment: item;
-	font-family: 'Proxima Nova Bold';
+	font-family: "Open Sans",'Proxima Nova Bold';
 }
 ul.dynamic {
 	list-style-type: none;
@@ -583,10 +624,10 @@ input.btn-group.yellow:checked + label {
 /*  Color: "Wave Green"
 	Class name: green
     ------------------ */
-.color_wavegreen { color: #54dfb3; }
+.color_wavegreen { color: #4d8cc5; }
 .bg_green, input.green, button.green, ul.green li, label.green,
 input.green + label {
-	background-color: #54dfb3;
+	background-color: #4d8cc5;
 }
 /* Downpressed button. */
 button.green:active, button.green.pressed,
@@ -595,7 +636,7 @@ input.btn-group:active + label.green,
 input.btn-group.green:active + label,
 input.btn-group:checked + label.green,
 input.btn-group.green:checked + label {
-	background-color: #3aca9c;
+	background-color: #3d719f;
 }
 
 /*  Color: "Blue Hue"

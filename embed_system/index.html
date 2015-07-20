@@ -12,6 +12,9 @@
 
 	<title>TI SensorTag CC2650 &amp; CC2541 Sensors</title>
 
+	<!--FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700,600,300' rel='stylesheet' type='text/css'>
+
 	<style>
 		@import 'ui/css/evothings-app.css';
 	</style>
@@ -24,6 +27,8 @@
 	<script src="cordova.js"></script>
 	<script src="libs/evothings/evothings.js"></script>
 	<script src="libs/evothings/tisensortag/tisensortag.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 </head>
 
 <body>
@@ -36,13 +41,12 @@
 		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
 	</header>
 
-	<h1>TI SensorTag CC2650 &amp; CC2541 Sensors</h1>
+	<h1>Cautio Data Upload</h1>
 
-	<img src="TISensorTagCC2650.png"
-		style="float:right;width:120px;height:auto;"/>
+	<img src="cloud.png" style="float:right;width:120px;height:auto;padding-top:5px"/>
 
 	<p>
-		This example works with the <strong>TI SensorTag CC2650</strong>. It also works with the TI SensorTag CC2541 if you modify file index.html. Activate the SensorTag and press Connect to begin.
+		Welcome to the Data Upload Utility for the cautio system. This data will upload to our Control Centre system, by uploading the data to the cloud.
 	</p>
 
 	<p id="upgradeNotice" class="hidden">
@@ -61,11 +65,6 @@
 		<strong>Status:</strong> <span id="StatusData">Press Connect to find the nearest SensorTag</span>
 	</p>
 
-	<h2>Keypress:</h2>
-	<p>
-		<span id="KeypressData">[Waiting for value]</span>
-	</p>
-
 	<h2>Temperature:</h2>
 	<p>
 		<span id="TemperatureData">[Waiting for value]</span>
@@ -76,19 +75,9 @@
 		<span id="AccelerometerData">[Waiting for value]</span>
 	</p>
 
-	<h2>Humidity:</h2>
-	<p>
-		<span id="HumidityData">[Waiting for value]</span>
-	</p>
-
 	<h2>Magnetometer:</h2>
 	<p>
 		<span id="MagnetometerData">[Waiting for value]</span>
-	</p>
-
-	<h2>Barometer:</h2>
-	<p>
-		<span id="BarometerData">[Waiting for value]</span>
 	</p>
 
 	<h2>Gyroscope:</h2>
@@ -112,6 +101,22 @@
 	<script>
 	// SensorTag object.
 	var sensortag
+	var timeInterval = 1000 // 5 secs
+	var timer = null
+	var timeCounter = 0;
+
+	var temperatureReading = '0.00'
+	var lightReading = '0.00'
+	var accelerometerReading = {
+		x: '0.00',
+		y: '0.00',
+		z: '0.00'
+	}
+	var gyroscopeReading = {
+		x: '0.00',
+		y: '0.00',
+		z: '0.00'
+	}
 
 	function initialiseSensorTag()
 	{
@@ -119,9 +124,9 @@
 		sensortag = evothings.tisensortag.createInstance(
 			evothings.tisensortag.CC2650_BLUETOOTH_SMART)
 
-		// Uncomment to use SensorTag CC2541.
-		//sensortag = evothings.tisensortag.createInstance(
-		//	evothings.tisensortag.CC2541_BLUETOOTH_SMART)
+		Parse.initialize(
+      	'JfYHydBR8zdHhTE854UErMW1ZfOHQlbZTW2lD4xO',
+      	'zow8PB5qZhXxPe4FxGQSZZmRRIrmEE4LgNiA9ms3')
 
 		//
 		// Here sensors are set up.
@@ -149,12 +154,17 @@
 	function connect()
 	{
 		sensortag.connectToNearestDevice()
+
+		timer && clearInterval(timer)
+		timer = setInterval(onTimer, timeInterval)
 	}
 
 	function disconnect()
 	{
 		sensortag.disconnectDevice()
 		resetSensorDisplayValues()
+		clearInterval(timer)
+		timer = null
 	}
 
 	function statusHandler(status)
@@ -202,6 +212,33 @@
 		{
 			displayValue('StatusData', 'Error: ' + error)
 		}
+	}
+
+	function onTimer()
+	{
+		var SensorTagReading = Parse.Object.extend('SensorTagReading')
+    	var reading = new SensorTagReading();
+
+    	var data = {}
+    	data['Time'] = timeCounter
+		data['Temperature'] = temperatureReading
+		data['Light'] = lightReading
+		data['AccelX'] = accelerometerReading.x
+		data['AccelY'] = accelerometerReading.y
+		data['AccelZ'] = accelerometerReading.z
+		data['GyroX'] = gyroscopeReading.x
+		data['GyroY'] = gyroscopeReading.y
+		data['GyroZ'] = gyroscopeReading.z
+
+      	reading.save(data, {
+      		success: function(object) {
+        	$(".success").show();
+      		}, error: function(model, error) {
+        	$(".error").show();
+      		}
+    	});
+
+    	timeCounter++;
 	}
 
 	function resetSensorDisplayValues()
@@ -269,6 +306,7 @@
 
 		// Update the value displayed.
 		displayValue('TemperatureData', string)
+		temperatureReading = ac.toFixed(2)
 	}
 
 	function accelerometerHandler(data)
@@ -292,6 +330,9 @@
 
 		// Update the value displayed.
 		displayValue('AccelerometerData', string)
+		accelerometerReading.x = x.toFixed(5)
+		accelerometerReading.y = y.toFixed(5)
+		accelerometerReading.z = z.toFixed(5)
 	}
 
 	function humidityHandler(data)
@@ -375,6 +416,9 @@
 
 		// Update the value displayed.
 		displayValue('GyroscopeData', string)
+		gyroscopeReading.x = x.toFixed(5)
+		gyroscopeReading.y = y.toFixed(5)
+		gyroscopeReading.z = z.toFixed(5)
 	}
 
 	function luxometerHandler(data)
@@ -389,6 +433,7 @@
 
 		// Update the value displayed.
 		displayValue('LuxometerData', string)
+		lightReading = value.toPrecision(3)
 	}
 
 	function displayValue(elementId, value)
@@ -438,6 +483,8 @@
 		'deviceready',
 		function() { evothings.scriptsLoaded(initialiseSensorTag) },
 		false)
+
+	
 	</script>
 
 </body>
