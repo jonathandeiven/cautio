@@ -1,14 +1,17 @@
 document.ready = function () {
 
-		CanvasJS.addColorSet("Shades",
-                [//colorSet Array
+	CanvasJS.addColorSet("Shades",
+        [//colorSet Array
 
-                "#C24642",
-                "#369EAD",
-                "#92D050"                
-                ]);
+        "#C24642",
+        "#369EAD",
+        "#92D050"                
+        ]);
 
-// LUX METER DATA
+	// How often the graphs update
+	var updateInterval = 1000;
+
+	// LUX METER DATA
 		// dataPoints
 		var LUMdataPoints1 = [];
 		var LUMline1 = "x";
@@ -31,6 +34,7 @@ document.ready = function () {
 			},
 			axisX: {
 				//title: "Time"
+				//interval: 1
 			},
 			axisY:{
 				//title: "Acceleration",
@@ -62,7 +66,7 @@ document.ready = function () {
           }
 		});
 
-		var LUMupdateInterval = 1000;
+		//var LUMupdateInterval = 1000;
 		// initial value
 		var LUMyValue1 = 0; 
 
@@ -103,13 +107,13 @@ document.ready = function () {
 		};
 
 		// generates first set of dataPoints 
-		LUMupdateChart(30);	
+		LUMupdateChart(1);	
 		 
 		// update chart after specified interval 
-		setInterval(function(){LUMupdateChart()}, LUMupdateInterval);
+		setInterval(function(){LUMupdateChart()}, updateInterval);
 
-// ACCELEROMETER DATA
-				// dataPoints
+	// ACCELEROMETER DATA
+		// dataPoints
 		var ACCELdataPoints1 = [];
 		var ACCELdataPoints2 = [];
 		var ACCELdataPoints3 = [];
@@ -135,6 +139,7 @@ document.ready = function () {
 			},
 			axisX: {
 				//title: "Time"
+				//interval: 1
 			},
 			axisY:{
 				//title: "Acceleration",
@@ -183,7 +188,7 @@ document.ready = function () {
           }
 		});
 
-		var ACCELupdateInterval = 1000;
+		//var ACCELupdateInterval = 1000;
 		// initial value
 		var ACCELyValue1 = 0; 
 		var ACCELyValue2 = 0; 
@@ -244,12 +249,12 @@ document.ready = function () {
 		};
 
 		// generates first set of dataPoints 
-		ACCELupdateChart(30);	
+		ACCELupdateChart(1);	
 		 
 		// update chart after specified interval 
-		setInterval(function(){ACCELupdateChart()}, ACCELupdateInterval);
+		setInterval(function(){ACCELupdateChart()}, updateInterval);
 		
-// TEMPERATURE DATA
+	// TEMPERATURE DATA
 		// dataPoints
 		var TEMPdataPoints1 = [];
 		var TEMPline1 = "x";
@@ -272,6 +277,7 @@ document.ready = function () {
 			},
 			axisX: {
 				//title: "Time"
+				//interval: 1
 			},
 			axisY:{
 				//title: "Acceleration",
@@ -303,7 +309,7 @@ document.ready = function () {
           }
 		});
 
-		var TEMPupdateInterval = 1000;
+		//var TEMPupdateInterval = 1000;
 		// initial value
 		var TEMPyValue1 = 0; 
 
@@ -344,13 +350,13 @@ document.ready = function () {
 		};
 
 		// generates first set of dataPoints 
-		TEMPupdateChart(30);	
+		TEMPupdateChart(1);	
 		 
 		// update chart after specified interval 
-		setInterval(function(){TEMPupdateChart()}, TEMPupdateInterval);
+		setInterval(function(){TEMPupdateChart()}, updateInterval);
 
-// GYROSCOPE DATA
-				// dataPoints
+	// GYROSCOPE DATA
+		// dataPoints
 		var GYROdataPoints1 = [];
 		var GYROdataPoints2 = [];
 		var GYROdataPoints3 = [];
@@ -376,6 +382,7 @@ document.ready = function () {
 			},
 			axisX: {
 				//title: "Time"
+				//interval: 1
 			},
 			axisY:{
 				//title: "Acceleration",
@@ -424,7 +431,7 @@ document.ready = function () {
           }
 		});
 
-		var GYROupdateInterval = 1000;
+		//var GYROupdateInterval = 1000;
 		// initial value
 		var GYROyValue1 = 0; 
 		var GYROyValue2 = 0; 
@@ -485,8 +492,8 @@ document.ready = function () {
 		};
 
 		// generates first set of dataPoints 
-		GYROupdateChart(30);	
+		GYROupdateChart(1);	
 		 
 		// update chart after specified interval 
-		setInterval(function(){GYROupdateChart()}, GYROupdateInterval);
+		setInterval(function(){GYROupdateChart()}, updateInterval);
 }
