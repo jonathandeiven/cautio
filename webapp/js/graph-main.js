@@ -427,8 +427,8 @@ document.ready = function () {
 				labelFontColor: "#FFF",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: -250,
-				maximum: 250, //FIX WITH ACTUAL MAX VALUE
+				minimum: -300,
+				maximum: 300, //FIX WITH ACTUAL MAX VALUE
 				gridColor: "#FFF",
 			}, 
 			data: [{ 
