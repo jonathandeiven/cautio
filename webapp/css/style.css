@@ -2,6 +2,9 @@
 
 html,body{ 
     background-color: #171717;
+    height: 100%;
+    display: absolute;
+    margin: 0;
 }
 
 hr {
