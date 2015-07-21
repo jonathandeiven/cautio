@@ -36,7 +36,7 @@ function getLatestObj(){
 }
 
 function checkTrigger(light, btnPush){
-	if (light > 10) {
+	if (light > 5) {
 		$("#offlineimage").css("visibility", "hidden");
 		$(".navbar").css("border-bottom-color", "#4d8cc5");
 		$("#blankaccel").css("visibility", "hidden");
@@ -45,7 +45,7 @@ function checkTrigger(light, btnPush){
 		$("#blanktemp").css("visibility", "hidden");
 	}
 
-	if (light <= 10 || btnPush) {
+	if (light <= 5 || btnPush) {
 		$("#offlineimage").css("visibility", "visible");
 		$(".navbar").css("border-bottom-color", "#da1b1b");
 		$("#blankaccel").css("visibility", "visible");
