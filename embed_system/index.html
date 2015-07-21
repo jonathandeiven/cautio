@@ -101,7 +101,7 @@
 	<script>
 	// SensorTag object.
 	var sensortag
-	var timeInterval = 1000 // 5 secs
+	var timeInterval = 100 // 5 secs
 	var timer = null
 	var timeCounter = 0;
 
@@ -155,13 +155,13 @@
 			.statusCallback(statusHandler)
 			.errorCallback(errorHandler)
 			.keypressCallback(keypressHandler)
-			.temperatureCallback(temperatureHandler, 1000)
-			.humidityCallback(humidityHandler, 1000)
-			.barometerCallback(barometerHandler, 1000)
-			.accelerometerCallback(accelerometerHandler, 1000)
-			.magnetometerCallback(magnetometerHandler, 1000)
-			.gyroscopeCallback(gyroscopeHandler, 1000)
-			.luxometerCallback(luxometerHandler, 1000)
+			.temperatureCallback(temperatureHandler, 100)
+			.humidityCallback(humidityHandler, 100)
+			.barometerCallback(barometerHandler, 100)
+			.accelerometerCallback(accelerometerHandler, 100)
+			.magnetometerCallback(magnetometerHandler, 100)
+			.gyroscopeCallback(gyroscopeHandler, 100)
+			.luxometerCallback(luxometerHandler, 100)
 	}
 
 	function connect()

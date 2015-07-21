@@ -1,8 +1,42 @@
-window.onload = function () {
-	
+var dataArr = new Array();
 
-	var lux = prompt("What is the lux reading?");
-	if (lux > 10) {
+window.onload = function () {
+	Parse.initialize(
+      	'JfYHydBR8zdHhTE854UErMW1ZfOHQlbZTW2lD4xO',
+      	'zow8PB5qZhXxPe4FxGQSZZmRRIrmEE4LgNiA9ms3')
+
+	setInterval(function(){ 
+		getLatestObj();
+		setTimeout(function () {
+			var light = parseInt(dataArr[dataArr.length - 1].Light);
+			var btnPush = dataArr[dataArr.length - 1].Btn;
+			console.log(light)
+			checkTrigger(light, btnPush);
+    	}, 100);
+	}, 100);
+
+}
+
+function getLatestObj(){
+	var SensorTagReading = Parse.Object.extend("SensorTagReading");
+	var query = new Parse.Query(SensorTagReading);
+	
+	query.descending("updatedAt");
+	query.limit(1);
+	var latestSessionID;
+
+	query.find({
+            success: function (results) {
+            	dataArr.push(results[0].attributes);
+            },
+            error: function (error) {
+                ("Error: " + error.code + " " + error.message);
+            }
+    });
+}
+
+function checkTrigger(light, btnPush){
+	if (light > 10) {
 		$("#offlineimage").css("visibility", "hidden");
 		$(".navbar").css("border-bottom-color", "#4d8cc5");
 		$("#blankaccel").css("visibility", "hidden");
@@ -11,28 +45,18 @@ window.onload = function () {
 		$("#blanktemp").css("visibility", "hidden");
 	}
 
-	/*
-	Parse.initialize(
-      	'JfYHydBR8zdHhTE854UErMW1ZfOHQlbZTW2lD4xO',
-      	'zow8PB5qZhXxPe4FxGQSZZmRRIrmEE4LgNiA9ms3')
+	if (light <= 10 || btnPush) {
+		$("#offlineimage").css("visibility", "inline");
+		$(".navbar").css("border-bottom-color", "#da1b1b");
+		$("#blankaccel").css("visibility", "inline");
+		$("#blankgyro").css("visibility", "inline");
+		$("#blanklum").css("visibility", "inline");
+		$("#blanktemp").css("visibility", "inline");
+	}
+}
 
-	var SensorTagReading = Parse.Object.extend("SensorTagReading");
-	var query = new Parse.Query(SensorTagReading);
-	var lightReading;
-
-	var test = query.get("8JOhlYEcM8", {
-      	success: function(sensorTagReading) {
-        	lightReading = sensorTagReading.get('Light');
-      	}, error: function(object, error) {
-        	//error
-      	}
-
-
-      console.log(lightReading)
-    });*/
-
-
-	
-
+function getCurrentLight(){
+	var light = parseInt(dataArr[dataArr.length - 1].Light)
+	checkTrigger(light);
 }
 

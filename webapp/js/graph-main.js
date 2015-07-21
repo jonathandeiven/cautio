@@ -1,4 +1,25 @@
 document.ready = function () {
+	var lightReading = 0;
+	var temperatureReading = 0;
+	var accelReadingX = 0;
+	var accelReadingY = 0;
+	var accelReadingZ = 0;
+	var gyroReadingX = 0;
+	var gyroReadingY = 0;
+	var gyroReadingZ = 0;
+	var timer = 0;
+
+	setInterval(function(){ 
+		lightReading = parseInt(dataArr[dataArr.length - 1].Light);
+		temperatureReading = parseFloat(dataArr[dataArr.length - 1].Temperature);
+		accelReadingX = parseFloat(dataArr[dataArr.length - 1].AccelX) * 9.8;
+		accelReadingY = parseFloat(dataArr[dataArr.length - 1].AccelY) * 9.8;
+		accelReadingZ = parseFloat(dataArr[dataArr.length - 1].AccelZ) * 9.8 + 9.8;
+		gyroReadingX = parseInt(dataArr[dataArr.length - 1].GyroX);
+		gyroReadingY = parseInt(dataArr[dataArr.length - 1].GyroY);
+		gyroReadingZ = parseInt(dataArr[dataArr.length - 1].GyroZ);
+		timer = dataArr[dataArr.length - 1].Time - dataArr[0].Time;
+	}, 50);
 
 	CanvasJS.addColorSet("Shades",
         [//colorSet Array
@@ -36,7 +57,7 @@ document.ready = function () {
 				fontColor: "#FFF"
 			},
 			axisX: {
-				labelFontColor: "#FFF",
+				labelFontColor: "#0a60b1",
 				//title: "Time"
 				//interval: 1
 				gridColor: "#FFF"
@@ -48,7 +69,7 @@ document.ready = function () {
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: 0,
-				maximum: 100, //FIX WITH ACTUAL MAX VALUE
+				maximum: 600, //FIX WITH ACTUAL MAX VALUE
 				stripLines:[
 				{
 					
@@ -96,16 +117,18 @@ document.ready = function () {
 				// add interval duration to time				
 				LUMtime++;
 
+				//LumValueX = dataArr[dataArr.length - 1].Time
+				//LUMyValue1 = parseInt(dataArr[dataArr.length - 1].Light);
 
 				// generating random values
 				var LUMdeltaY1 = .5 + Math.random() *(-.5-.5);
 
 				// adding random value and rounding it to two digits. 
-				LUMyValue1 = Math.round((LUMyValue1 + LUMdeltaY1)*100)/100;
+				LUMyValue1 = lightReading;
 				
 				// pushing the new values
 				LUMdataPoints1.push({
-					x: LUMtime,
+					x: timer,
 					y: LUMyValue1
 				});
 
@@ -152,7 +175,7 @@ document.ready = function () {
 				fontColor: "#FFF"
 			},
 			axisX: {
-				labelFontColor: "#FFF",
+				labelFontColor: "#0a60b1",
 				//title: "Time"
 				//interval: 1
 				gridColor: "#FFF"
@@ -161,8 +184,8 @@ document.ready = function () {
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: -5,
-				maximum: 5, //FIX WITH ACTUAL MAX VALUE	
+				minimum: -12,
+				maximum: 12, //FIX WITH ACTUAL MAX VALUE	
 				labelFontColor: "#FFF",	
 				gridColor: "#FFF"		
 			}, 
@@ -225,28 +248,22 @@ document.ready = function () {
 				// add interval duration to time				
 				ACCELtime++;
 
-
-				// generating random values
-				var ACCELdeltaY1 = .5 + Math.random() *(-.5-.5);
-				var ACCELdeltaY2 = .5 + Math.random() *(-.5-.5);
-				var ACCELdeltaY3 = .5 + Math.random() *(-.5-.5);
-
 				// adding random value and rounding it to two digits. 
-				ACCELyValue1 = Math.round((ACCELyValue1 + ACCELdeltaY1)*100)/100;
-				ACCELyValue2 = Math.round((ACCELyValue2 + ACCELdeltaY2)*100)/100;
-				ACCELyValue3 = Math.round((ACCELyValue3 + ACCELdeltaY3)*100)/100;
+				ACCELyValue1 = accelReadingX;
+				ACCELyValue2 = accelReadingY;
+				ACCELyValue3 = accelReadingZ;
 				
 				// pushing the new values
 				ACCELdataPoints1.push({
-					x: ACCELtime,
+					x: timer,
 					y: ACCELyValue1
 				});
 				ACCELdataPoints2.push({
-					x: ACCELtime,
+					x: timer,
 					y: ACCELyValue2
 				});
 				ACCELdataPoints3.push({
-					x: ACCELtime,
+					x: timer,
 					y: ACCELyValue3
 				});
 
@@ -295,7 +312,7 @@ document.ready = function () {
 				fontColor: "#FFF"
 			},
 			axisX: {
-				labelFontColor: "#FFF",
+				labelFontColor: "#0a60b1",
 				//title: "Time"
 				//interval: 1
 				gridColor: "#FFF"
@@ -348,16 +365,12 @@ document.ready = function () {
 				// add interval duration to time				
 				TEMPtime++;
 
-
-				// generating random values
-				var TEMPdeltaY1 = .5 + Math.random() *(-.5-.5);
-
 				// adding random value and rounding it to two digits. 
-				TEMPyValue1 = Math.round((TEMPyValue1 + TEMPdeltaY1)*100)/100;
+				TEMPyValue1 = temperatureReading;
 				
 				// pushing the new values
 				TEMPdataPoints1.push({
-					x: TEMPtime,
+					x: timer,
 					y: TEMPyValue1
 				});
 
@@ -404,7 +417,7 @@ document.ready = function () {
 				fontColor: "#FFF"
 			},
 			axisX: {
-				labelFontColor: "#FFF",
+				labelFontColor: "#0a60b1",
 				//title: "Time"
 				//interval: 1
 				gridColor: "#FFF"
@@ -477,28 +490,22 @@ document.ready = function () {
 				// add interval duration to time				
 				GYROtime++;
 
-
-				// generating random values
-				var GYROdeltaY1 = .5 + Math.random() *(-.5-.5);
-				var GYROdeltaY2 = .5 + Math.random() *(-.5-.5);
-				var GYROdeltaY3 = .5 + Math.random() *(-.5-.5);
-
 				// adding random value and rounding it to two digits. 
-				GYROyValue1 = Math.round((GYROyValue1 + GYROdeltaY1)*100)/100;
-				GYROyValue2 = Math.round((GYROyValue2 + GYROdeltaY2)*100)/100;
-				GYROyValue3 = Math.round((GYROyValue3 + GYROdeltaY3)*100)/100;
+				GYROyValue1 = gyroReadingX;
+				GYROyValue2 = gyroReadingY;
+				GYROyValue3 = gyroReadingZ;
 				
 				// pushing the new values
 				GYROdataPoints1.push({
-					x: GYROtime,
+					x: timer,
 					y: GYROyValue1
 				});
 				GYROdataPoints2.push({
-					x: GYROtime,
+					x: timer,
 					y: GYROyValue2
 				});
 				GYROdataPoints3.push({
-					x: GYROtime,
+					x: timer,
 					y: GYROyValue3
 				});
 
