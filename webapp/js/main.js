@@ -5,6 +5,10 @@ window.onload = function () {
 	if (lux > 10) {
 		$("#offlineimage").css("visibility", "hidden");
 		$(".navbar").css("border-bottom-color", "#4d8cc5");
+		$("#blankaccel").css("visibility", "hidden");
+		$("#blankgyro").css("visibility", "hidden");
+		$("#blanklum").css("visibility", "hidden");
+		$("#blanktemp").css("visibility", "hidden");
 	}
 
 	/*

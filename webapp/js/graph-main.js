@@ -48,7 +48,14 @@ document.ready = function () {
 				includeZero: false,
 				gridDashType: "dot",
 				minimum: 0,
-				maximum: 200 //FIX WITH ACTUAL MAX VALUE
+				maximum: 100, //FIX WITH ACTUAL MAX VALUE
+				stripLines:[
+				{
+					
+					startValue:10,
+					endValue:10.1,                
+					color:"#d8d8d8"					}
+				]
 			}, 
 			data: [{ 
 				// dataSeries1
