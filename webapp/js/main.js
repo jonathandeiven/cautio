@@ -46,12 +46,12 @@ function checkTrigger(light, btnPush){
 	}
 
 	if (light <= 10 || btnPush) {
-		$("#offlineimage").css("visibility", "inline");
+		$("#offlineimage").css("visibility", "visible");
 		$(".navbar").css("border-bottom-color", "#da1b1b");
-		$("#blankaccel").css("visibility", "inline");
-		$("#blankgyro").css("visibility", "inline");
-		$("#blanklum").css("visibility", "inline");
-		$("#blanktemp").css("visibility", "inline");
+		$("#blankaccel").css("visibility", "visible");
+		$("#blankgyro").css("visibility", "visible");
+		$("#blanklum").css("visibility", "visible");
+		$("#blanktemp").css("visibility", "visible");
 	}
 }
 

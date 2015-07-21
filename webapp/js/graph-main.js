@@ -184,8 +184,8 @@ document.ready = function () {
 				//title: "Acceleration",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: -12,
-				maximum: 12, //FIX WITH ACTUAL MAX VALUE	
+				minimum: -20,
+				maximum: 20, //FIX WITH ACTUAL MAX VALUE	
 				labelFontColor: "#FFF",	
 				gridColor: "#FFF"		
 			}, 
@@ -427,8 +427,8 @@ document.ready = function () {
 				labelFontColor: "#FFF",
 				includeZero: false,
 				gridDashType: "dot",
-				minimum: -200,
-				maximum: 200, //FIX WITH ACTUAL MAX VALUE
+				minimum: -250,
+				maximum: 250, //FIX WITH ACTUAL MAX VALUE
 				gridColor: "#FFF",
 			}, 
 			data: [{ 
